@@ -8,7 +8,7 @@ if #modems == 0 then
 end
 
 function defaultHandler(response)
-    if response.Headers and response.Headers.Type == "script" then
+    if response and response.Headers and response.Headers.Type == "script" then
         if response.Headers.Dependencies ~= nil then
             print("This script requires dependencies:")
             term.setTextColour(colors.lightBlue)
@@ -43,7 +43,7 @@ function defaultHandler(response)
         return nil
     end
     
-    print(response.Body)
+    if response then print(response.Body) end
 end
 
 _G.internetHandler = defaultHandler
