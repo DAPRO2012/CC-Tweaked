@@ -9,22 +9,10 @@ function StartServer(log, handler)
     while true do
         event, side, channel, replyChannel, message, distance = os.pullEvent("modem_message")
         if channel == id then
-            modem.transmit(replyChannel, channel, handle(message))
+            modems[1].transmit(replyChannel, channel, handler(message))
             
             if log then
-                local timeResponse = http.get("http://worldtimeapi.org")
-                local date
-                local time
-                if response then
-                    local body = response.readAll()
-                    response.close()
-                    
-                    local datetime = body:match('"datetime":"([^"]+)"')
-                    if datetime then
-                        date, time = datetime:match("([^T]+)T([^.]+)")
-                    end
-                end
-                print(string.format("[%s] \"%s\" %s", time, message.uri, message.method))
+                print(string.format("[%s] \"%s\" %s", os.date("%H:%M"), message.uri, message.method))
             end
         end
     end
@@ -35,4 +23,5 @@ StartServer(true, function(m)
         Headers = {},
         Body = "Hello"
     }
+    return packet
 end)
