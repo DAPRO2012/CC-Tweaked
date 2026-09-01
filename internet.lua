@@ -68,3 +68,7 @@ function Request(Channel, URI, Method, Headers, Body)
     
     _G.internetHandler(message)
 end
+
+return {
+    request = Request
+}
