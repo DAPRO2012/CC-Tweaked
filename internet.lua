@@ -68,11 +68,3 @@ function Request(Channel, URI, Method, Headers, Body)
     
     _G.internetHandler(message)
 end
-
-local mockPacket = {}
-mockPacket.Body = "print('Hello World!')"
-mockPacket.Headers = {}
-mockPacket.Headers.Type = "script"
-mockPacket.Headers.name = "test"
-
-_G.internetHandler(mockPacket)
