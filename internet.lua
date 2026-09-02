@@ -61,12 +61,17 @@ function Request(Channel, URI, Method, Headers, Body)
     modems[1].open(myChannel)
     modems[1].transmit(Channel, myChannel, packet)
     
+    local timeoutTimer = os.startTimer(0.01)
     local event, side, rChannel, rReplyChannel, message, distance
     repeat
-        event, side, rChannel, rReplyChannel, message, distance = os.pullEvent("modem_message")
-    until rChannel == myChannel
+        event, side, rChannel, rReplyChannel, message, distance = os.pullEvent()
+        
+        if event == "timer" and side == timeoutTimer then
+            return nil
+        end
+    until event == "modem_message" and rChannel == myChannel
     
-    _G.internetHandler(message)
+    return message
 end
 
 return {
