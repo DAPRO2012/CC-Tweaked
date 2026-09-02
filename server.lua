@@ -10,7 +10,7 @@ function StartServer(name, log, handler)
         event, side, channel, replyChannel, message, distance = os.pullEvent("modem_message")
         if channel == id then
             local replyMessage
-            if string.lower(message.Method) == "ping" then
+            if string.lower(message.method) == "ping" then
                 replyMessage = {
                     Body = name
                 }
