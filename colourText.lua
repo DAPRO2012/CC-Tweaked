@@ -35,3 +35,7 @@ local function printColored(textString, defaultBg)
         term.setCursorPos(1, y + 1)
     end
 end
+
+return {
+    printColored = printColored
+}
