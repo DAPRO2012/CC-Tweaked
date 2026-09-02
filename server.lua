@@ -18,10 +18,6 @@ function StartServer(log, handler)
     end
 end
 
-StartServer(true, function(m)
-    local packet = {
-        Headers = {},
-        Body = "Hello"
-    }
-    return packet
-end)
+return {
+    start = StartServer
+}
