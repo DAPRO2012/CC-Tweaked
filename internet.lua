@@ -1,3 +1,4 @@
+local coloured = require("colourText")
 local modems = { peripheral.find("modem", function(name, modem)
     return modem.isWireless()
 end) }
@@ -43,7 +44,7 @@ function defaultHandler(response)
         return nil
     end
     
-    if response then print(response.Body) end
+    if response then coloured.printColored(response.Body) end
 end
 
 _G.internetHandler = defaultHandler
