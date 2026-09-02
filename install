@@ -1,3 +1,4 @@
 shell.run("wget https://raw.githubusercontent.com/DAPRO2012/CC-Tweaked/refs/heads/main/internet.lua")
 shell.run("wget https://raw.githubusercontent.com/DAPRO2012/CC-Tweaked/refs/heads/main/server.lua")
 shell.run("wget https://raw.githubusercontent.com/DAPRO2012/CC-Tweaked/refs/heads/main/search.lua")
+shell.run("wget https://raw.githubusercontent.com/DAPRO2012/CC-Tweaked/refs/heads/main/colourText.lua")
